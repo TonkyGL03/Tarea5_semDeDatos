@@ -133,7 +133,7 @@ int main(){
     Date myDate;
     string myStr;
     char opc;
-    Cola<Student>myCola;
+    Cola<Student> myCola;
 
 
     do{
@@ -151,13 +151,18 @@ int main(){
 
         myStudent.setName(myName);
 
-        cout << "Fecha de nacimiento (AAAA/MM/DD):";
-        getline(cin, myStr, '/');
-        myDate.setYear(atoi(myStr.c_str()));
-        getline(cin, myStr, '/');
-        myDate.setMonth(atoi(myStr.c_str()));
-        getline(cin, myStr, '/');
-        myDate.setDay(atoi(myStr.c_str()));
+        cout << "Dia de nacimiento: ";
+        fflush(stdin);
+        getline(cin, myStr);
+        myDate.setYear(stoi(myStr));
+        cout<<"Ingrese mes de nacimiento: ";
+        fflush(stdin);
+        getline(cin, myStr);
+        myDate.setMonth(stoi(myStr));
+        cout<<"Ingrese año de nacimiento: ";
+        fflush(stdin);
+        getline(cin, myStr);
+        myDate.setDay(stoi(myStr));
 
         myStudent.setBirthDate(myDate);
 
@@ -165,13 +170,19 @@ int main(){
         getline(cin, myStr);
         myStudent.setCareer(myStr);
 
-        cout << "Fecha de ingreso (AAAA/MM/DD):";
-        getline(cin, myStr, '/');
-        myDate.setYear(atoi(myStr.c_str()));
-        getline(cin, myStr, '/');
-        myDate.setMonth(atoi(myStr.c_str()));
-        getline(cin, myStr, '/');
-        myDate.setDay(atoi(myStr.c_str()));
+        cout << "Fecha de ingreso" << endl;
+        cout << "Dia de ingreso: ";
+        fflush(stdin);
+        getline(cin, myStr);
+        myDate.setYear(stoi(myStr));
+        cout<<"Ingrese mes de ingrteso: ";
+        fflush(stdin);
+        getline(cin, myStr);
+        myDate.setMonth(stoi(myStr));
+        cout<<"Ingrese año de ingreso: ";
+        fflush(stdin);
+        getline(cin, myStr);
+        myDate.setDay(stoi(myStr));
 
         myStudent.setStartDate(myDate);
 
@@ -179,7 +190,7 @@ int main(){
         getline(cin, myStr);
         myStudent.setGrade(atof(myStr.c_str()));
 
-        myCola().Queue(myStudent);
+        myCola.Queue(myStudent);
 
         cout << "insertar otro? (s/n):";
         cin >> opc;
@@ -189,9 +200,9 @@ int main(){
 
     cout << endl << endl;
 
-    if(!myCola().vacia()){
+    if(!myCola.vacia()){
         cout << "siguiente en la Cola: " << endl;
-        cout << myCola().Front() << endl;
+        cout << myCola.Front().getName().toString() << endl;
     }
 
     cout << endl << endl;
